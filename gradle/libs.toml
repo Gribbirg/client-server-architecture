@@ -1,10 +1,13 @@
 [versions]
-kotlin = "1.9.0"
+kotlin = "2.0.20"
+lombok = "1.18.34"
 
 
 [libraries]
 
-plugin-kotlin = { group="org.jetbrains.kotlin", name="kotlin-gradle-plugin", version.ref="kotlin" }
+lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
+
+plugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 
 [bundles]
 plugins-gradle = ["plugin-kotlin"]
