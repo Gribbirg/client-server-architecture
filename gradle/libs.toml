@@ -1,6 +1,8 @@
 [versions]
 kotlin = "2.0.20"
 lombok = "1.18.34"
+spring = "3.3.3"
+spring-messaging = "6.1.12"
 
 
 [libraries]
@@ -8,9 +10,14 @@ lombok = "1.18.34"
 lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
 
 plugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-spring = { group = "org.springframework.boot", name = "spring-boot-gradle-plugin", version.ref = "spring" }
+
+spring-boot-starter = { group = "org.springframework.boot", name = "spring-boot-starter", version.ref = "spring" }
+spring-boot-starter-websocket = { group = "org.springframework.boot", name = "spring-boot-starter-websocket", version.ref = "spring" }
+spring-messaging = { group = "org.springframework", name = "spring-messaging", version.ref = "spring-messaging" }
 
 [bundles]
-plugins-gradle = ["plugin-kotlin"]
-
+plugins-gradle = ["plugin-kotlin", "plugin-spring"]
+spring-boot = ["spring-boot-starter", "spring-boot-starter-websocket", "spring-messaging"]
 
 [plugins]

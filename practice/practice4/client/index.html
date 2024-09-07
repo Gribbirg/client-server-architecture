@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+<h2>WebSocket Test</h2>
+<div>
+    <input type="text" id="message" placeholder="Введите сообщение">
+    <button onclick="sendMessage()">Отправить</button>
+</div>
+<div>
+    <h3>Полученные сообщения:</h3>
+    <ul id="messages"></ul>
+</div>
+
+<script type="text/javascript">
+    var stompClient = null;
+
+    function connect() {
+        var socket = new SockJS('http://localhost:8080/webs');
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function(frame) {
+            console.log('Подключено: ' + frame);
+            stompClient.subscribe('/topic/return', function(response){
+                showMessage(response.body);
+            });
+        });
+    }
+
+    function sendMessage() {
+        var message = document.getElementById('message').value;
+        stompClient.send("/app/message", {}, message);
+    }
+
+    function showMessage(message) {
+        var messages = document.getElementById('messages');
+        var messageElement = document.createElement('li');
+        messageElement.appendChild(document.createTextNode(message));
+        messages.appendChild(messageElement);
+    }
+
+    connect();
+</script>
+</body>
+</html>
