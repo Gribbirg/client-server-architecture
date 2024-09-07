@@ -26,7 +26,8 @@ dependencyResolutionManagement {
 
 includeBuild("build-logic")
 include("practice:practice1")
-include("practice:practice2")
+include("practice:practice2:server")
+include("practice:practice2:client")
 include("practice:practice3")
 include("practice:practice4")
 include("practice:practice5")
