@@ -1,7 +1,9 @@
 plugins {
-    id("convention.core")
+    id("java")
+    id("kotlin")
 }
 
 dependencies {
-    implementation(project(":core"))
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
 }
