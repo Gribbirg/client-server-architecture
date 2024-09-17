@@ -1,4 +1,4 @@
-package ru.mirea.practice1;
+package ru.mirea.client_server_architecture.practice1;
 
 import lombok.Builder;
 
