@@ -3,6 +3,7 @@ kotlin = "2.0.20"
 lombok = "1.18.34"
 spring = "3.3.3"
 spring-messaging = "6.1.12"
+thymeleaf = "3.1.2.RELEASE"
 
 
 [libraries]
@@ -13,11 +14,14 @@ plugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin",
 plugin-spring = { group = "org.springframework.boot", name = "spring-boot-gradle-plugin", version.ref = "spring" }
 
 spring-boot-starter = { group = "org.springframework.boot", name = "spring-boot-starter", version.ref = "spring" }
+spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web", version.ref = "spring" }
+spring-boot-starter-thymeleaf = { group = "org.springframework.boot", name = "spring-boot-starter-thymeleaf", version.ref = "spring" }
 spring-boot-starter-websocket = { group = "org.springframework.boot", name = "spring-boot-starter-websocket", version.ref = "spring" }
 spring-messaging = { group = "org.springframework", name = "spring-messaging", version.ref = "spring-messaging" }
+thymeleaf = { group = "org.thymeleaf", name = "thymeleaf", version.ref = "thymeleaf" }
 
 [bundles]
 plugins-gradle = ["plugin-kotlin", "plugin-spring"]
-spring-boot = ["spring-boot-starter", "spring-boot-starter-websocket", "spring-messaging"]
+spring-boot = ["spring-boot-starter", "spring-boot-starter-websocket", "spring-messaging", "spring-boot-starter-web", "thymeleaf", "spring-boot-starter-thymeleaf"]
 
 [plugins]
